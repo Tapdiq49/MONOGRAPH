@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap');
+
+:root {
+    --red: rgba(255, 92, 92, 1);
+    --very-dark-blue: rgba(36, 41, 66, 1);
+    --dark-grayish-blue: rgba(91, 95, 113, 1);
+    --grayish-blue: rgba(160, 161, 172, 1);
+    --light-grayish-blue: rgba(238, 243, 246, 1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: 'Barlow', sans-serif;
+    font-size: 20px;
+}
+
+body::after {
+    content: "";
+    background-color: var(--light-grayish-blue);
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50vw;
+    height: 50vh;
+    z-index: -1;
+    border-bottom-left-radius: 100px;
+}
+
+li {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+nav {
+    margin: 40px 0;
+}
+
+.navbar {
+    display: none;
+}
+
+.container {
+    max-width: 100%;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container ul {
+    display: flex;
+}
+
+.container ul li {
+    margin-left: 40px;
+}
+
+.container ul li a {
+    color: var(--very-dark-blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.container ul .circle {
+    position: relative;
+    margin-left: 80px;
+}
+
+.container ul .circle a {
+    color: var(--grayish-blue);
+}
+
+.container ul .circle::before {
+    content: "";
+    position: absolute;
+    left: -35px;
+    top: 35%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--grayish-blue);
+}
+
+.first {
+    flex: 1.2;
+}
+
+.first h4 {
+    color: var(--grayish-blue);
+    font-size: 1.2em;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.first h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+    font-size: 4.8em;
+    line-height: 1;
+    margin: 0;
+}
+
+.first p {
+    color: var(--dark-grayish-blue);
+    font-size: 1.4em;
+}
+
+.first h4 span {
+    background-color: var(--very-dark-blue);
+    font-family: 'Barlow Condensed', sans-serif;
+    border-radius: 50px;
+    color: #fff;
+    padding: 5px 15px;
+    margin-right: 10px;
+    text-transform: uppercase;
+    font-size: 1em;
+    font-weight: 400;
+    letter-spacing: 4px;
+}
+
+.last {
+    flex: 0.8;
+}
+
+.last img {
+    transform: scale(2.2) translateX(25%);
+    max-width: 100%;
+}
+
+.schedule {
+    font-family: 'Barlow Condensed', sans-serif;
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.schedule button {
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 20px 30px;
+    background-color: var(--red);
+    letter-spacing: 2px;
+    font-size: 19px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.schedule h2 {
+    margin-left: 30px;
+    letter-spacing: 3px;
+    font-weight: 400;
+    color: var(--grayish-blue);
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        background-color: transparent;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        display: block;
+        position: relative;
+        z-index: 99;
+        transition: all .4s linear;
+    }
+
+    .navbar:hover {
+        transform: rotate(180deg) scale(1.2);
+    }
+
+    .icon-close {
+        display: none;
+    }
+
+    .show-nav .icon-close {
+        display: block;
+    }
+
+    .show-nav .icon-active {
+        display: none;
+    }
+
+    ul {
+        background-color: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        transform: translateX(100%);
+        z-index: 100;
+        transition: transform 0.4s ease;
+    }
+
+    .show-nav ul {
+        transform: translateX(0);
+    }
+
+    ul li {
+        margin: 20px 30px;
+        text-align: center;
+    }
+
+    .circle {
+        margin: 0 0 20px 0 !important;
+    }
+
+    .circle::before {
+        display: none;
+    }
+
+    ul li a {
+        font-size: 1.5em;
+    }
+
+    .first {
+        margin-top: 60px;
+        font-size: 0.5em;
+    }
+
+    .last{
+        display: flex;
+        margin-left: -100px;
+        width: 150px;
+    }
+    .last img{
+        max-width: 100%;
+    }
+    .responsive{
+        flex-direction: column-reverse;
+    }
+
+    .schedule button{
+        font-size: 0.9em;
+    }
+}
